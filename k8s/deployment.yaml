@@ -1,11 +1,11 @@
 apiVersion: apps/v1
-kind: deployment
+kind: Deployment
 metadata:
   name: web
 spec:
-  replicas: 10
+  replicas: 1
   selector:
-    matchlabels:
+    matchLabels:
       app: web
   template:
     metadata:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: web
-          imagem: camilomachado/conversao-temperatura:v1
+          image: camilomachado/conversao-temperatura:v1
           ports:
           - containerPort: 8080
 
@@ -31,4 +31,4 @@ spec:
     - port: 80
       targetPort: 8080
       nodePort: 30000
-  type: nodePort
+  type: NodePort
